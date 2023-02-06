@@ -3,8 +3,10 @@ package com.example.weather.feature.presentation.home
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.weather.R
+import com.example.weather.core.LoadState
 import com.example.weather.core.base.BaseFragment
 import com.example.weather.databinding.FragmentHomeBinding
 import com.example.weather.feature.domain.model.Weather
@@ -19,31 +21,33 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.start()
         clickOnSettings()
+
         dataObserve(viewModel.weather) { weathers -> setData(weathers) }
+        dataObserve(viewModel.loadState) { state -> loadStateListener(state) }
     }
 
-    private fun setData(weather: Weather) {
-        binding.weather.apply {
-            clouds.text = weather.clouds.toString()
-            speedWind.text = weather.windSpeed.toString()
-            tempMax.text = weather.TempMax.toInt().toString()
-            tempMin.text = weather.TempMin.toInt().toString()
+    private fun loadStateListener(state: LoadState) = binding.itemTemp.apply {
+        progressBar.isVisible = state == LoadState.LOADING
+        networkError.isVisible = state == LoadState.ERROR
+    }
 
+    private fun setData(weathers: Weather) = binding.apply {
+        city.text = weathers.cityName
+        date.text = viewModel.getDate()
+        weather.apply {
+            clouds.text = weathers.clouds.toString()
+            speedWind.text = weathers.windSpeed.toString()
+            tempMax.text = weathers.TempMax.toInt().toString()
+            tempMin.text = weathers.TempMin.toInt().toString()
         }
-        binding.itemTemp.apply {
-            temperature.text = weather.TempCurrent.toInt().toString()
-            icon.setImageResource(weather.icon)
-        }
-        binding.apply {
-            city.text = weather.cityName
-            date.text = viewModel.getDate()
+        itemTemp.apply {
+            temperature.text = weathers.TempCurrent.toInt().toString()
+            icon.setImageResource(weathers.icon)
         }
     }
 
-    private fun clickOnSettings() {
+    private fun clickOnSettings() =
         binding.settings.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_navigation_dashboard)
         }
-    }
-
 }
