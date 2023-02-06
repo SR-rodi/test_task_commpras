@@ -7,7 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.weather.R
 import com.example.weather.core.base.BaseFragment
 import com.example.weather.databinding.FragmentHomeBinding
-import com.example.weather.feature.domain.Weather
+import com.example.weather.feature.domain.model.Weather
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
@@ -17,25 +17,33 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.date.text = viewModel.getDate()
-        binding.city.text = viewModel.getCityName()
-        binding.settings.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_navigation_dashboard)
-        }
+        viewModel.start()
+        clickOnSettings()
         dataObserve(viewModel.weather) { weathers -> setData(weathers) }
     }
 
     private fun setData(weather: Weather) {
         binding.weather.apply {
-
             clouds.text = weather.clouds.toString()
             speedWind.text = weather.windSpeed.toString()
             tempMax.text = weather.TempMax.toInt().toString()
             tempMin.text = weather.TempMin.toInt().toString()
 
         }
-        binding.itemTemp.temperature.text = weather.TempCurrent.toInt().toString()
-        binding.itemTemp.icon.setImageResource(weather.icon)
-        binding.city.text = weather.cityName
+        binding.itemTemp.apply {
+            temperature.text = weather.TempCurrent.toInt().toString()
+            icon.setImageResource(weather.icon)
+        }
+        binding.apply {
+            city.text = weather.cityName
+            date.text = viewModel.getDate()
+        }
     }
+
+    private fun clickOnSettings() {
+        binding.settings.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_dashboard)
+        }
+    }
+
 }

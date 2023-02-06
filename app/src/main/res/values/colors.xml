@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="teal_100">#30A2C5</color>
+    <color name="transparent">#0030A2C5</color>
+    <color name="grey">#B1B1B1</color>
+    <color name="red">#F36767</color>
 </resources>

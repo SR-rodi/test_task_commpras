@@ -1,11 +1,10 @@
-package com.example.weather.feature.domain.usecase
+package com.example.weather.feature.domain.usecase.impl
 
 import com.example.weather.R
-import com.example.weather.core.extension.Log
-import com.example.weather.feature.domain.CurrentWeatherRepository
-import com.example.weather.feature.domain.CurrentWeatherUseCase
-import com.example.weather.feature.domain.Query
-import com.example.weather.feature.domain.Weather
+import com.example.weather.feature.domain.repository.CurrentWeatherRepository
+import com.example.weather.feature.domain.settings.Query
+import com.example.weather.feature.domain.model.Weather
+import com.example.weather.feature.domain.usecase.CurrentWeatherUseCase
 import javax.inject.Inject
 
 class CurrentWeatherUseCaseImpl @Inject constructor(
@@ -15,7 +14,6 @@ class CurrentWeatherUseCaseImpl @Inject constructor(
 
     override suspend fun getCurrentWeatherByCity(query: Query): Weather {
         val weather = repository.getCurrentWeatherByCity(query)
-        Log(" ${weather.iconName} =  ${mapIcons[weather.iconName]}")
         weather.icon = mapIcons[weather.iconName] ?: R.drawable.ic_error
         return weather
     }

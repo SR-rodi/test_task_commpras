@@ -1,7 +1,7 @@
 package com.example.weather.di
 
 import com.example.weather.feature.data.api.WeatherApi
-import com.example.weather.feature.domain.Query
+import com.example.weather.feature.domain.settings.Query
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

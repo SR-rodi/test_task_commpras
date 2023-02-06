@@ -1,4 +1,4 @@
-package com.example.weather.feature.domain
+package com.example.weather.feature.domain.model
 
 class Weather(
     val id: Int = 0,

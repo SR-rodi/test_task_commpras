@@ -1,8 +1,8 @@
 package com.example.weather.feature.data.repositoryImpl
 
 import com.example.weather.feature.data.api.WeatherApi
-import com.example.weather.feature.domain.CurrentWeatherRepository
-import com.example.weather.feature.domain.Query
+import com.example.weather.feature.domain.repository.CurrentWeatherRepository
+import com.example.weather.feature.domain.settings.Query
 import javax.inject.Inject
 
 class CurrentWeatherRepositoryImpl @Inject constructor(private val weatherApi: WeatherApi) :

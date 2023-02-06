@@ -4,12 +4,10 @@ import android.annotation.SuppressLint
 import android.icu.util.Calendar
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weather.core.extension.Log
-import com.example.weather.feature.domain.CurrentWeatherUseCase
-import com.example.weather.feature.domain.Query
-import com.example.weather.feature.domain.Weather
+import com.example.weather.feature.domain.usecase.CurrentWeatherUseCase
+import com.example.weather.feature.domain.settings.Query
+import com.example.weather.feature.domain.model.Weather
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
@@ -26,14 +24,14 @@ class HomeViewModel @Inject constructor(
 
     fun getDate(): String = simpleDateFormat.format(Calendar.getInstance().timeInMillis)
 
-    fun getCityName() = query.city
-
     private val _weather = MutableStateFlow(Weather())
     val weather = _weather.asSharedFlow()
 
-    init {
+
+    fun start() {
         viewModelScope.launch(Dispatchers.IO) {
             _weather.value = useCase.getCurrentWeatherByCity(query)
         }
     }
+
 }

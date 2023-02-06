@@ -10,7 +10,8 @@ import javax.inject.Singleton
     modules = [
         RetrofitModule::class,
         Binds::class,
-        RepositoryModule::class
+        RepositoryModule::class,
+        DefaultSettingsModule::class
     ]
 )
 interface AppComponent {

@@ -1,6 +1,6 @@
 package com.example.weather.feature.data.dto
 
-import com.example.weather.feature.domain.Weather
+import com.example.weather.feature.domain.model.Weather
 
 class ResponseWeatherDto(
     private val clouds: CloudsDto,

@@ -9,4 +9,6 @@
     <string name="percent">%</string>
     <string name="temp_max">Максимальная температура</string>
     <string name="temp_min">Минимальная температура</string>
+    <string name="set_city">Выберите город</string>
+    <string name="enter">Выбрать</string>
 </resources>
