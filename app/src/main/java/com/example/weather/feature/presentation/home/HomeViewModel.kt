@@ -30,11 +30,10 @@ class HomeViewModel @Inject constructor(
     val weather = _weather.asSharedFlow()
 
 
-    fun start() {
+    fun start() =
         viewModelScope.launch(Dispatchers.IO + handler) {
             _loadState.value = LoadState.LOADING
             _weather.value = useCase.getCurrentWeatherByCity(query)
             _loadState.value = LoadState.SUCCESS
         }
-    }
 }

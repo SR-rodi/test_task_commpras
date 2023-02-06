@@ -16,5 +16,4 @@ abstract class BaseViewModel : ViewModel() {
         Log(error)
         _loadState.value = LoadState.ERROR
     }
-
 }

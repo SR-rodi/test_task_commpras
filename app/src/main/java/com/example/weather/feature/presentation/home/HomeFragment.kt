@@ -49,6 +49,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun clickOnSettings() =
         binding.settings.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_navigation_dashboard)
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_settings)
         }
 }

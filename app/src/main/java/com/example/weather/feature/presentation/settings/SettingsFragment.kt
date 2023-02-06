@@ -6,6 +6,7 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.weather.core.base.BaseFragment
 import com.example.weather.databinding.FragmentSettingsBinding
+import com.example.weather.feature.data.City
 import com.example.weather.feature.presentation.settings.adapter.CityAdapter
 
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
@@ -14,7 +15,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     private val viewModel: SettingsViewModel by lazy { initViewModel() }
 
-    private val adapter by lazy { CityAdapter{ cityName-> setOnItemClick(cityName)} }
+    private val adapter by lazy { CityAdapter { cityName -> setOnItemClick(cityName) } }
 
     private fun setOnItemClick(cityName: String) {
         viewModel.setCiteInQuery(cityName)
@@ -23,10 +24,12 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dataObserve(viewModel.city) { list ->
-            adapter.submitList(list)
-            binding.cityRecycler.adapter = adapter
-        }
+
+        dataObserve(viewModel.city) { list -> setAdapter(list) }
     }
 
+    private fun setAdapter(list: List<City>) {
+        adapter.submitList(list)
+        binding.cityRecycler.adapter = adapter
+    }
 }

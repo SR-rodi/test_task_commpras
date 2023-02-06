@@ -20,13 +20,13 @@ class DefaultSettings {
     )
 
     val listCity = listOf(
-        City("London","Лондон"),
-        City("Volgograd","Волгоград"),
-        City("Moscow","Москва"),
-        City("Istanbul","Стамбул"),
-        City("Venice","Венеция"),
-        City("Rio de Janeiro","Рио де Жанейро"),
-        City("Amsterdam","Амстердам"),
-        City("Prague","Прага"),
+        City("London", "Лондон"),
+        City("Volgograd", "Волгоград"),
+        City("Moscow", "Москва"),
+        City("Istanbul", "Стамбул"),
+        City("Venice", "Венеция"),
+        City("Rio de Janeiro", "Рио де Жанейро"),
+        City("Amsterdam", "Амстердам"),
+        City("Prague", "Прага"),
     )
 }

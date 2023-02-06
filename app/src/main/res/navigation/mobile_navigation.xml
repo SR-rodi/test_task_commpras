@@ -11,14 +11,14 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_navigation_home_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
+            android:id="@+id/action_navigation_home_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_settings"
         android:name="com.example.weather.feature.presentation.settings.SettingsFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
 
 </navigation>

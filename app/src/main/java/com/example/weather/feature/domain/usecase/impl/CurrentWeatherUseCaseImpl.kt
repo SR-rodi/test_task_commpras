@@ -17,5 +17,4 @@ class CurrentWeatherUseCaseImpl @Inject constructor(
         weather.icon = mapIcons[weather.iconName] ?: R.drawable.ic_error
         return weather
     }
-
 }

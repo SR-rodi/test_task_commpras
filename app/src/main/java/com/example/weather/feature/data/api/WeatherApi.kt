@@ -8,12 +8,12 @@ interface WeatherApi {
 
     @GET(CURRENT_WEATHER)
     suspend fun getCurrentWeather(
-        @Query("q") q:String,
-        @Query("units") units:String = UNITS,
-        @Query("lang") lang:String = BASE_LANG,
-        @Query("APPID") apiKey:String = API_KEY
+        @Query("q") q: String,
+        @Query("units") units: String = UNITS,
+        @Query("lang") lang: String = BASE_LANG,
+        @Query("APPID") apiKey: String = API_KEY
 
-    ):ResponseWeatherDto
+    ): ResponseWeatherDto
 
 
     companion object {

@@ -4,9 +4,8 @@ import android.content.Context
 import com.example.weather.app.App
 import com.example.weather.di.AppComponent
 
-fun <T> Log(log: T) {
+fun <T> Log(log: T) =
     android.util.Log.e("Kart", "$log")
-}
 
 
 fun Context.appComponent(): AppComponent =

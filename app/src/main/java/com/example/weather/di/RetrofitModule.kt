@@ -28,6 +28,5 @@ class RetrofitModule {
 
     companion object {
         private const val BASE_URL = "https://api.openweathermap.org/"
-
     }
 }

@@ -33,6 +33,4 @@ class RepositoryModule {
     @Singleton
     fun providesListCityUseCaseImpl(repository: ListCityRepository) =
         ListCityUseCaseImpl(repository)
-
-
 }
