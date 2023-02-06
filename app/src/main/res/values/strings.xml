@@ -3,4 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="wind_speed">Скорость ветра</string>
+    <string name="m_c">m/c</string>
+    <string name="clouds">Облочность</string>
+    <string name="percent">%</string>
+    <string name="temp_max">Максимальная температура</string>
+    <string name="temp_min">Минимальная температура</string>
 </resources>

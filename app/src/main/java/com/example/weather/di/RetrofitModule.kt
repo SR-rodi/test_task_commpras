@@ -1,6 +1,7 @@
 package com.example.weather.di
 
 import com.example.weather.feature.data.api.WeatherApi
+import com.example.weather.feature.domain.Query
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,6 +21,10 @@ class RetrofitModule {
     @Provides
     @Singleton
     fun provideApi(retrofit: Retrofit): WeatherApi = retrofit.create()
+
+    @Provides
+    @Singleton
+    fun provideQuery() = Query()
 
     companion object {
         private const val BASE_URL = "https://api.openweathermap.org/"
