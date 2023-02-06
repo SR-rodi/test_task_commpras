@@ -14,7 +14,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center|top"
         android:layout_marginTop="25dp"
-        android:src="@drawable/ic_home_black_24dp" />
+        tools:src="@drawable/ic_home_black_24dp" />
 
     <FrameLayout
         android:layout_width="match_parent"

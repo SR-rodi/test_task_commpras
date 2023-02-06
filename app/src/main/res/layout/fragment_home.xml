@@ -46,6 +46,16 @@
          android:layout_gravity="center"
          android:layout_marginVertical="25dp" />
 
+     <TextView
+         android:id="@+id/descriptions"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:layout_marginHorizontal="8dp"
+         android:layout_marginBottom="8dp"
+         android:textSize="16sp"
+         tools:text=" Rain"/>
+
      <include
          android:id="@+id/weather"
          layout="@layout/item_weather"

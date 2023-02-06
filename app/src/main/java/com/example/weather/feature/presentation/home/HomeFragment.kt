@@ -34,11 +34,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private fun setData(weathers: Weather) = binding.apply {
         city.text = weathers.cityName
         date.text = viewModel.getDate()
+        descriptions.text = weathers.weatherDescriptions.replaceFirstChar(Char::titlecase)
         weather.apply {
             clouds.text = weathers.clouds.toString()
             speedWind.text = weathers.windSpeed.toString()
-            tempMax.text = weathers.TempMax.toInt().toString()
-            tempMin.text = weathers.TempMin.toInt().toString()
+            humidity.text = weathers.humidity.toString()
+            pressure.text = weathers.pressure.toString()
         }
         itemTemp.apply {
             temperature.text = weathers.TempCurrent.toInt().toString()

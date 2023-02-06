@@ -12,13 +12,12 @@ class ResponseWeatherDto(
 ) {
     fun toWeather() = Weather(
         id,
-        weather.first().main,
+        main.humidity,
+        main.pressure,
         weather.first().description,
         wind.speed,
         clouds.all,
         main.temp,
-        main.temp_min,
-        main.temp_max,
         weather.first().icon,
         name,
     )

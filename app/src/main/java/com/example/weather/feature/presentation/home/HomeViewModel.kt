@@ -23,7 +23,8 @@ class HomeViewModel @Inject constructor(
     @SuppressLint("SimpleDateFormat")
     private val simpleDateFormat = SimpleDateFormat("EEEE, dd MMMM, yyyy")
 
-    fun getDate(): String = simpleDateFormat.format(Calendar.getInstance().timeInMillis)
+    fun getDate(): String = simpleDateFormat
+        .format(Calendar.getInstance().timeInMillis).replaceFirstChar(Char::titlecase)
 
     private val _weather = MutableStateFlow(Weather())
     val weather = _weather.asSharedFlow()
