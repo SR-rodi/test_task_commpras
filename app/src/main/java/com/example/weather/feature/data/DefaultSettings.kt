@@ -1,8 +1,9 @@
-package com.example.weather.feature.domain
+package com.example.weather.feature.domain.settings
 
 import com.example.weather.R
+import com.example.weather.feature.data.City
 
-class WeatherIcon {
+class DefaultSettings {
     val iconMap = mapOf(
         Pair("11d", R.drawable.lightning),
         Pair("09d", R.drawable.cloud_rain),
@@ -17,5 +18,16 @@ class WeatherIcon {
         Pair("02n", R.drawable.sun_cloud),
         Pair("03n", R.drawable.cloud),
         Pair("04n", R.drawable.very_clouds),
+    )
+
+    val listCity = listOf(
+        City("London","Лондон"),
+        City("Volgograd","Волгоград"),
+        City("Moscow","Москва"),
+        City("Istanbul","Стамбул"),
+        City("Venice","Венеция"),
+        City("Rio de Janeiro","Рио де Жанейро"),
+        City("Amsterdam","Амстердам"),
+        City("Prague","Прага"),
     )
 }
