@@ -1,7 +1,6 @@
-package com.example.weather.feature.domain.settings
+package com.example.weather.feature.data
 
 import com.example.weather.R
-import com.example.weather.feature.data.City
 
 class DefaultSettings {
     val iconMap = mapOf(

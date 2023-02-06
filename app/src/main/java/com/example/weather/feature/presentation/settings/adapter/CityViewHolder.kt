@@ -2,7 +2,7 @@ package com.example.weather.feature.presentation.settings.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather.databinding.ItemCityBinding
-import com.example.weather.feature.domain.settings.City
+import com.example.weather.feature.data.City
 
 class CityViewHolder(
     private val binding: ItemCityBinding,

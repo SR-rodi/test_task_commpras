@@ -1,6 +1,6 @@
 package com.example.weather.di
 
-import com.example.weather.feature.domain.settings.DefaultSettings
+import com.example.weather.feature.data.DefaultSettings
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

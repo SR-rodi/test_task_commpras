@@ -1,11 +1,11 @@
 package com.example.weather.di
 
+import com.example.weather.feature.data.City
 import com.example.weather.feature.data.api.WeatherApi
 import com.example.weather.feature.data.repositoryImpl.CurrentWeatherRepositoryImpl
 import com.example.weather.feature.data.repositoryImpl.ListCityRepositoryImpl
 import com.example.weather.feature.domain.repository.CurrentWeatherRepository
 import com.example.weather.feature.domain.repository.ListCityRepository
-import com.example.weather.feature.domain.settings.City
 import com.example.weather.feature.domain.usecase.impl.CurrentWeatherUseCaseImpl
 import com.example.weather.feature.domain.usecase.impl.ListCityUseCaseImpl
 import dagger.Module

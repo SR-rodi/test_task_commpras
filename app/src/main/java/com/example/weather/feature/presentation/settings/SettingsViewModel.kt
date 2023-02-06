@@ -2,7 +2,7 @@ package com.example.weather.feature.presentation.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weather.feature.domain.settings.City
+import com.example.weather.feature.data.City
 import com.example.weather.feature.domain.settings.Query
 import com.example.weather.feature.domain.usecase.ListCityUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,11 +27,7 @@ class SettingsViewModel @Inject constructor(
             _city.value = listCityUseCase.getListCity(query.city)
         }
 
-
-    fun setCiteInQuery(name: String) =
-        viewModelScope.launch {
-            query.city = name
-            _city.value = listCityUseCase.getListCity(query.city)
-        }
-
+    fun setCiteInQuery(name: String) {
+        query.city = name
+    }
 }

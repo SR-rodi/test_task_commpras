@@ -4,7 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather.databinding.ItemCityBinding
-import com.example.weather.feature.domain.settings.City
+import com.example.weather.feature.data.City
+
 
 class CityAdapter(
     private val onClick:(name:String)->Unit

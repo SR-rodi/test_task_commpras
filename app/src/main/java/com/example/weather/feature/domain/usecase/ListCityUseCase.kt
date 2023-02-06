@@ -1,6 +1,7 @@
 package com.example.weather.feature.domain.usecase
 
-import com.example.weather.feature.domain.settings.City
+import com.example.weather.feature.data.City
+
 
 interface ListCityUseCase {
 
