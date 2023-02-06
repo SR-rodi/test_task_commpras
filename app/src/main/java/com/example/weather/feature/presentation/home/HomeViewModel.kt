@@ -10,6 +10,7 @@ import com.example.weather.feature.domain.Query
 import com.example.weather.feature.domain.Weather
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -25,17 +26,14 @@ class HomeViewModel @Inject constructor(
 
     fun getDate(): String = simpleDateFormat.format(Calendar.getInstance().timeInMillis)
 
-    fun getCityName() =query.city
+    fun getCityName() = query.city
 
-    private val _weather = MutableSharedFlow<Weather>()
+    private val _weather = MutableStateFlow(Weather())
     val weather = _weather.asSharedFlow()
 
     init {
-        Log("start")
         viewModelScope.launch(Dispatchers.IO) {
-            val test = useCase.getCurrentWeatherByCity(query)
-            _weather.emit(test)
-            Log(test.clouds)
+            _weather.value = useCase.getCurrentWeatherByCity(query)
         }
     }
 }
